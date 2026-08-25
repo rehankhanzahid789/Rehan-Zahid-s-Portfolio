@@ -61,8 +61,6 @@ a {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 18px 0 0 18px;
-  box-shadow: 0 10px 30px rgba(16, 42, 41, 0.25);
 }
 
 /* ---------- Section headings ---------- */
@@ -98,6 +96,7 @@ a {
   display: flex;
   align-items: center;
   overflow: hidden;
+  cursor: pointer;
   transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 6px 18px rgba(16, 42, 41, 0.18);
 }
@@ -108,11 +107,11 @@ a {
 
 .pill-photo {
   flex: 0 0 auto;
-  width: var(--pill-h);
-  height: var(--pill-h);
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
-  border: 2.5px solid var(--ink);
   background: var(--white);
 }
 
@@ -150,6 +149,20 @@ a {
 .tile-col {
   display: flex;
   flex-direction: column;
+}
+
+.tile-col > .tile,
+.tile-col > .tile-small-grid {
+  flex: 1 1 auto;
+}
+
+.tile-col-heading {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  margin: 0 0 12px;
+  text-align: center;
 }
 
 .tile {
@@ -200,12 +213,24 @@ a {
   flex: 2 1 0;
   min-height: clamp(220px, 26vw, 320px);
   background: #0a66c2;
+  align-items: center;
+  justify-content: center;
 }
 
 .tile-github {
   flex: 1 1 0;
   min-height: clamp(220px, 26vw, 320px);
   background: var(--ink);
+  align-items: center;
+  justify-content: center;
+}
+
+.tile-linkedin .tile-icon,
+.tile-github .tile-icon {
+  position: static;
+  width: clamp(48px, 8vw, 72px);
+  height: clamp(48px, 8vw, 72px);
+  opacity: 1;
 }
 
 .tile-small-grid {
@@ -239,15 +264,6 @@ a {
 }
 .tile-gmail {
   background: #ea4335;
-}
-
-.tiles-heading-note {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--ink);
-  opacity: 0.65;
-  text-align: center;
-  margin: -30px auto 40px;
 }
 
 @media (max-width: 720px) {

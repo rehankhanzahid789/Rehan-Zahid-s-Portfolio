@@ -20,7 +20,7 @@ const LINKS = {
   threads: 'https://www.threads.com/@devrehanzahid',
 }
 
-function Tile({ className, href, label, sub, Icon }) {
+function Tile({ className, href, label, Icon }) {
   return (
     <a
       className={`tile ${className}`}
@@ -31,8 +31,7 @@ function Tile({ className, href, label, sub, Icon }) {
       <span className="tile-icon">
         <Icon />
       </span>
-      <p className="tile-label">{label}</p>
-      {sub && <p className="tile-sub">{sub}</p>}
+      {label && <p className="tile-label">{label}</p>}
     </a>
   )
 }
@@ -70,49 +69,40 @@ export default function App() {
       <section className="tiles-section">
         <div className="tiles-row">
           <div className="tile-col" style={{ flex: '2 1 0' }}>
-            <Tile
-              className="tile-linkedin"
-              href={LINKS.linkedin}
-              label="My LinkedIn"
-              sub="Let's connect professionally"
-              Icon={LinkedInIcon}
-            />
+            <h3 className="tile-col-heading">Highly Recommend This</h3>
+            <Tile className="tile-linkedin" href={LINKS.linkedin} Icon={LinkedInIcon} />
           </div>
 
           <div className="tile-col" style={{ flex: '1 1 0' }}>
-            <Tile
-              className="tile-github"
-              href={LINKS.github}
-              label="My GitHub"
-              sub="Code & projects"
-              Icon={GitHubIcon}
-            />
+            <h3 className="tile-col-heading">MyCode</h3>
+            <Tile className="tile-github" href={LINKS.github} Icon={GitHubIcon} />
           </div>
 
           <div className="tile-col" style={{ flex: '1 1 0' }}>
+            <h3 className="tile-col-heading">Ignore These (useless)</h3>
             <div className="tile-small-grid">
               <Tile
                 className="tile-small tile-insta"
                 href={LINKS.instagram}
-                label="Ignore These (useless)"
+                label="Instagram"
                 Icon={InstagramIcon}
               />
               <Tile
                 className="tile-small tile-facebook"
                 href={LINKS.facebook}
-                label="Ignore These (useless)"
+                label="Facebook"
                 Icon={FacebookIcon}
               />
               <Tile
                 className="tile-small tile-threads"
                 href={LINKS.threads}
-                label="Ignore These (useless)"
+                label="Threads"
                 Icon={ThreadsIcon}
               />
               <Tile
                 className="tile-small tile-gmail"
                 href={LINKS.gmail}
-                label="Ignore These (useless)"
+                label="Gmail"
                 Icon={MailIcon}
               />
             </div>
