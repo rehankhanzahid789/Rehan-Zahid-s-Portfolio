@@ -67,3 +67,42 @@ export function MailIcon(props) {
     </svg>
   )
 }
+
+export function CursorPointerIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth={1}
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M5 3l4.6 16.4 2.1-6.3 6.3-2.1z" />
+    </svg>
+  )
+}
+
+export function CursorClickIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.6}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path
+        d="M5 3l4.6 16.4 2.1-6.3 6.3-2.1z"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth={1}
+      />
+      <line x1="16.5" y1="3" x2="18" y2="1.5" />
+      <line x1="19.5" y1="7" x2="21.5" y2="6.5" />
+      <line x1="20" y1="11.5" x2="22" y2="12" />
+    </svg>
+  )
+}

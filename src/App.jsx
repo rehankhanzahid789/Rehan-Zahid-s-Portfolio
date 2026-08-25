@@ -70,12 +70,12 @@ export default function App() {
         <div className="tiles-row">
           <div className="tile-col" style={{ flex: '2 1 0' }}>
             <h3 className="tile-col-heading">Highly Recommend This</h3>
-            <Tile className="tile-linkedin" href={LINKS.linkedin} Icon={LinkedInIcon} />
+            <Tile className="tile-linkedin" href={LINKS.linkedin} label="My LinkedIn" Icon={LinkedInIcon} />
           </div>
 
           <div className="tile-col" style={{ flex: '1 1 0' }}>
             <h3 className="tile-col-heading">MyCode</h3>
-            <Tile className="tile-github" href={LINKS.github} Icon={GitHubIcon} />
+            <Tile className="tile-github" href={LINKS.github} label="My GitHub" Icon={GitHubIcon} />
           </div>
 
           <div className="tile-col" style={{ flex: '1 1 0' }}>
