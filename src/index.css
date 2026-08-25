@@ -1,0 +1,275 @@
+:root {
+  --blue: #4bc9f1;
+  --white: #f7f9f8;
+  --ink: #102a29;
+
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--blue);
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- Layout shell ---------- */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--blue);
+}
+
+/* ---------- Banner ---------- */
+
+.banner-wrap {
+  padding-top: clamp(14px, 2.5vw, 32px);
+  padding-left: clamp(14px, 2.5vw, 32px);
+  padding-right: 0;
+}
+
+.banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px 0 0 18px;
+  box-shadow: 0 10px 30px rgba(16, 42, 41, 0.25);
+}
+
+/* ---------- Section headings ---------- */
+
+.section-heading {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0 0 clamp(28px, 5vw, 56px);
+  letter-spacing: -0.01em;
+}
+
+.intro-block,
+.links-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(40px, 8vw, 90px) 20px;
+}
+
+/* ---------- Expanding pill (PFP -> capsule) ---------- */
+
+.pill {
+  --pill-h: clamp(96px, 12vw, 130px);
+  position: relative;
+  height: var(--pill-h);
+  width: var(--pill-h);
+  border-radius: 999px;
+  background: var(--white);
+  border: 2.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 18px rgba(16, 42, 41, 0.18);
+}
+
+.pill.expanded {
+  width: min(90vw, var(--pill-target, 480px));
+}
+
+.pill-photo {
+  flex: 0 0 auto;
+  width: var(--pill-h);
+  height: var(--pill-h);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid var(--ink);
+  background: var(--white);
+}
+
+.pill-text {
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  padding: 0 clamp(18px, 3vw, 32px);
+  font-size: clamp(0.95rem, 2vw, 1.3rem);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.5s ease 0.35s, transform 0.5s ease 0.35s;
+}
+
+.pill.expanded .pill-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---------- Tiles ---------- */
+
+.tiles-section {
+  padding: 0 clamp(16px, 5vw, 64px) clamp(60px, 10vw, 110px);
+}
+
+.tiles-row {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.tile-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.tile {
+  border-radius: 20px;
+  border: 2px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  text-align: left;
+}
+
+.tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 26px rgba(16, 42, 41, 0.25);
+}
+
+.tile-label {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--white);
+  margin: 0 0 4px;
+}
+
+.tile-sub {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--white);
+  opacity: 0.85;
+  word-break: break-word;
+}
+
+.tile-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  color: var(--white);
+  opacity: 0.9;
+}
+
+.tile-linkedin {
+  flex: 2 1 0;
+  min-height: clamp(220px, 26vw, 320px);
+  background: #0a66c2;
+}
+
+.tile-github {
+  flex: 1 1 0;
+  min-height: clamp(220px, 26vw, 320px);
+  background: var(--ink);
+}
+
+.tile-small-grid {
+  flex: 1 1 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(10px, 1.4vw, 16px);
+}
+
+.tile-small {
+  min-height: clamp(100px, 12.5vw, 152px);
+  padding: 12px;
+}
+
+.tile-small .tile-label {
+  font-size: clamp(0.8rem, 1.3vw, 1rem);
+}
+
+.tile-small .tile-sub {
+  display: none;
+}
+
+.tile-insta {
+  background: #d6249f;
+}
+.tile-facebook {
+  background: #1877f2;
+}
+.tile-threads {
+  background: #000000;
+}
+.tile-gmail {
+  background: #ea4335;
+}
+
+.tiles-heading-note {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ink);
+  opacity: 0.65;
+  text-align: center;
+  margin: -30px auto 40px;
+}
+
+@media (max-width: 720px) {
+  .tiles-row {
+    flex-direction: column;
+  }
+  .tile-linkedin,
+  .tile-github {
+    min-height: 160px;
+  }
+  .tile-small {
+    min-height: 100px;
+  }
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  text-align: center;
+  padding: 30px 20px 50px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink);
+  opacity: 0.7;
+}
